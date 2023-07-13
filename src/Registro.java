@@ -1,48 +1,79 @@
 import java.util.Scanner;
 import java.util.regex.Matcher;
+//import java.util.regex.Matcher;
+//import java.util.regex.Pattern;
 import java.util.regex.Pattern;
 
+
 public class Registro {
-     private String correo;
-    private String numero;
- Scanner sc=new Scanner(System.in);
-  public Registro(String c,String n){
- this.correo=c;
- this.numero=n;
-
-  }
-
-  public void pedirDatos(String numero, String correo){
-      System.out.println("Ingrese su número de celular");
-      numero=sc.nextLine();
-
-      System.out.println("Ingrese su correo electrónico");
-      correo=sc.nextLine();
-  };
-
-
-  public void validarNumero(String numero){
-       Pattern pattern = Pattern.compile("/^(?:(?:00)?549?)?0?(?:11|[2368]\\d)(?:(?=\\d{0,2}15)\\d{2})??\\d{8}$/");
-       Matcher matcher = pattern.matcher(numero);
-       while(matcher.find()==false){
-            System.out.println("Ingrese su número de celular");
-            numero=sc.nextLine();
-       }
-
-
-
-  };
-  public void registro(){
-     
-  }
-  /* 
-       //https://es.stackoverflow.com/questions/136325/validar-tel%C3%A9fonos-de-argentina-con-una-expresi%C3%B3n-regular#:~:text=Prefijo%20internacional%20(opcional)%3A%20%2B54,y%203xxx%20(%2B%206%20d%C3%ADgitos) 
- //https://www.pcresumen.com/menu-software/35-lenguajes-de-programacion/java/108-las-classes-pattern-y-matcher//
-    Pattern pattern = Pattern.compile("/^(?:(?:00)?549?)?0?(?:11|[2368]\\d)(?:(?=\\d{0,2}15)\\d{2})??\\d{8}$/");
-    Matcher matcher = pattern.matcher(numero);
-     
-
-*/
+    
+    //public static Integer num;
+    public static int numVencimiento;
+    public static void ingresarNumero(){
+      Scanner scanner= new Scanner(System.in);
+        Integer numCelular;
+        System.out.println("Para poder comprar la entrada debe llenar un formulario con sus datos personales");
+        System.out.println("Ingrese su número de celular:");
+        String num=scanner.nextLine();
+      try {
+				 numCelular = Integer.parseInt(num);
+          int size=numCelular.toString().length();
+         /*Pattern pattern = Pattern.compile("^[0-9][+]");
+          Matcher matcher = pattern.matcher(numCelular);*/
+       
+				//Parseo con éxito, no tiene letras. Pero falta comprobar si es negativo
+       if( size<8 ){
+          System.out.println("falta ingresar más números");
+          ingresarNumero();
+        };
+        
+				if  (numCelular < 0){ 
+				 ingresarNumero(); //Sí, es negativo. No lo queremos, así que anulamos este valor.
+			 }
+        }catch (Exception ex) {
+				System.out.println("ERROR. Introduzca valores numericos");
+        System.out.println(ex);
+        ingresarNumero();
+			}
+       VentaEntrada entrada= new VentaEntrada();
+        entrada.SelecTipoEntrada();
+		}
+      public static void registrarComprobantes(){
+         Scanner scanner= new Scanner(System.in);
+         System.out.println("Para confirmar la compra, es necesario que inserte los siguientes datos:");
+           System.out.println("Ingresá tu nombre");
+                    VentaEntrada.nombres[VentaEntrada.contNombres]=scanner.nextLine();
+                    comprobarNombres();
+                    System.out.println("Ingresá tu D.N.I");
+                    VentaEntrada.dni=scanner.nextInt();
+                    System.out.println("Ingresá tu número de tarjeta de débito o crédito");
+                    VentaEntrada.numTarjeta=scanner.nextInt();
+                    System.out.println("Ingresá el número de seguridad");
+                    VentaEntrada.numSeguridad=scanner.nextInt();
+                    System.out.println("Ingresá la fecha de vencimiento de la tarjeta");
+                    numVencimiento=scanner.nextInt();//HACER QUE SEA DATE();
+                  }
+public static void comprobarNombres(){
+   
+ /*Pattern pattern = Pattern.compile("[A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙ][a-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]+(?:\s+[a-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]+)+");
+    Matcher matcher = pattern.matcher(VentaEntrada.nombres[VentaEntrada.contNombres]);
+ 
+  if (matcher.find() == false) { registrarComprobantes(); };*/
 }
+ /*
+ 
+ Pattern pattern = Pattern.compile("[A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙ][a-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]+(?:\s+[a-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]+)+");
+    Matcher matcher = pattern.matcher(VentaEntradda.nombres);
+ 
+  if (matcher.find() == false) { regustrarComprobantes(); };
+ 
+ [A-ZÄËÏÖÜÁÉÍÓÚÂÊÎÔÛÀÈÌÒÙ][a-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]+(?:\s+[a-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ]+)+ */
+        
+      
+}
+          
+
+   
+    
 
 
