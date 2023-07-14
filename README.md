@@ -1,4 +1,4 @@
-# TRABAJO PRÁCTICO - ALGORITMOS Y ESTRUCTURA DE DATOS I
+# TRABAJO PRÁCTICO-ALGORITMOS Y ESTRUCTURA DE DATOS I
 
 Proyecto seleccionado: Venta de entradas de un concierto
 
