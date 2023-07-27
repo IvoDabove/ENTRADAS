@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 public class Registro {
     
     //public static Integer num;
-    public static int numVencimiento;
+    
     public static void ingresarNumero(){
       Scanner scanner= new Scanner(System.in);
         Integer numCelular;
@@ -50,8 +50,17 @@ public class Registro {
                     VentaEntrada.numTarjeta=scanner.nextInt();
                     System.out.println("Ingresá el número de seguridad");
                     VentaEntrada.numSeguridad=scanner.nextInt();
-                    System.out.println("Ingresá la fecha de vencimiento de la tarjeta");
-                    numVencimiento=scanner.nextInt();//HACER QUE SEA DATE();
+                    scanner.nextLine();
+                    try {
+
+
+                      System.out.println("Ingresá la fecha de vencimiento de la tarjeta");
+                      VentaEntrada.numVencimiento=scanner.nextLine();
+                    }catch(Exception err){
+                      System.out.println(err);
+                    }
+                    
+                    
                   }
 public static void comprobarNombres(){
    

@@ -12,7 +12,7 @@ public class VentaEntrada {
   public static int cantUsuario;
   public static int precioEntrada;
   public static int precioTotal;
-
+  public static String numVencimiento;
   public static int dni;
   public static String email;
   public static String telefono;
