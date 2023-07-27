@@ -25,14 +25,16 @@ public class Registro {
        if( size<8 ){
           System.out.println("falta ingresar más números");
           ingresarNumero();
+        } else if(size>10){
+          System.out.println("excede la cantidad de numeros establecidos por el sistema");
+          ingresarNumero();
         };
         
 				if  (numCelular < 0){ 
 				 ingresarNumero(); //Sí, es negativo. No lo queremos, así que anulamos este valor.
 			 }
         }catch (Exception ex) {
-				System.out.println("ERROR. Introduzca valores numericos");
-        System.out.println(ex);
+			
         ingresarNumero();
 			}
        VentaEntrada entrada= new VentaEntrada();
